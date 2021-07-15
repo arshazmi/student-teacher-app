@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000;
+const port = 3000
 app.use(express.urlencoded({extended: true}));
 app.use(express.json()) // To parse the incoming requests with JSON payloads
 app.use(express.static('public'))
@@ -9,11 +9,11 @@ var pgp = require('pg-promise')( /* options */ )
 var db = pgp('postgres://postgres:password@localhost:5432/tablename');
 
 app.get('/', (req, res) => {
-    res.render('teacher');
+    res.render('teacher')
 })
 
 app.get('/teacher/edit/:id', async function(req,res){
-    await db.any('SELECT id,name,course FROM register WHERE id=${id}',
+    await db.any('SELECT id,name,course FROM teacher WHERE id=${id}',
        {id:req.params.id} 
     ).then(data=>{
         console.log("Data from db:",data);
