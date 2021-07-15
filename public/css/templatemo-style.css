@@ -533,7 +533,7 @@ h3.profile-title {
 .contact-form {
   margin-top: 40px;
 }
-.contact-form input, .contact-form textarea {
+.contact-form input {
   width: 100%;
   outline: 0;
   border: 1px solid #aaaaaa;
@@ -541,6 +541,16 @@ h3.profile-title {
   color: #999999;
   margin-bottom: 30px;
 }
+ .contact-form select  {
+  width: 100%;
+  outline: 0;
+  border: 1px solid #aaaaaa;
+  padding: 8px;
+  color: #999999;
+  margin-bottom: 30px;
+}
+
+
 .contact-form input:focus, .contact-form textarea:focus {
   outline: 0;
 }
