@@ -282,7 +282,7 @@ hr {
 }
 @media screen and (max-width: 1290px) {
   .sidebar-menu {
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     width: 30%;
   }
 }
@@ -423,7 +423,7 @@ h3.profile-title {
 .banner-bg {
   padding: 260px 80px;
   position: relative;
-  background: url("../img/7.jpg");
+  background: url("../img/bg2.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
