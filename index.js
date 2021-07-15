@@ -6,7 +6,7 @@ app.use(express.json()) // To parse the incoming requests with JSON payloads
 app.use(express.static('public'))
 app.set('view engine', 'ejs');
 var pgp = require('pg-promise')( /* options */ )
-var db = pgp('postgres://postgres:root@localhost:5432/student-teacher');
+var db = pgp('postgres://postgres:1234@localhost:5432/student-teacher');
 
 app.get('/', (req, res) => {
     res.render('teacher')
@@ -82,6 +82,41 @@ app.get('/teacher/delete/:id', async function(req,res){
     };
      res.status(200).json(data);
 });
+})
+
+app.get('/studreg',(req,res)=>{
+    res.render('studreg')
+})
+
+//-----------------------student registerations----------------------------------
+app.post('/api/select/post', async (req, res) => {
+    console.log(req.params);
+    console.log(req.body);
+    // if (req.body.id === '') {
+        await db.none('INSERT INTO student (name,dob,course,address,email,phone,password) VALUES(${name},${dob},${course},${address},${email},${phone},${password})', { 
+            name: req.body.name,
+            dob: req.body.dob,
+            course: req.body.course,
+            address: req.body.address,
+            email: req.body.email,
+            phone: req.body.phone,
+            password: req.body.password
+        });
+
+    // // } else {
+    //     await db.none('update ajaxuser set  name=${name},age=${age} where id = ${id}', {
+    //         name: req.body.name,
+    //         age: req.body.age,
+    //         id: req.body.id
+    // //     })
+    // // }
+
+    var data = {
+        'status': "Valid",
+        'status-code': "5001",
+    };
+    res.status(200).json(data);
+
 })
 
 app.listen(port, () => {
