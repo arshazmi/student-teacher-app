@@ -1,22 +1,11 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js">
-<!--<![endif]-->
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Student-Teacher Management</title>
     <meta name="description" content="">
-    <!-- 
-    	Volton Template
-    	http://www.templatemo.com/tm-441-volton
-        -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -25,10 +14,6 @@
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
     <div class="responsive-header visible-xs visible-sm">
         <div class="container">
             <div class="row">
@@ -70,254 +55,156 @@
                 <li><a href="#projects"></i>Logout</a></li>
             </ul>
         </div> <!-- .main-navigation -->
-        <!-- <div class="social-icons">
-                <ul>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                </ul>
-            </div> 
-            <! .social-icons -->
     </div>
-     <!-- .sidebar-menu  -->
+    <!-- .sidebar-menu  -->
 
 
     <div class="banner-bg" id="top">
         <div class="banner-overlay"></div>
         <div class="welcome-text">
             <h2>Teacher</h2>
-            <!-- <h5>This is a mobile friendly layout with Bootstrap v3.3.1 framework. Maecenas eu ante at nunc posuere fringilla sit amet non dolor. Proin condimentum fermentum nunc.</h5> -->
         </div>
     </div>
 
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="fluid-container">
-
             <div class="content-wrapper">
-
-                <!-- ABOUT -->
-                <!-- <div class="page-section" id="about">
+                <div class="page-section" id="contact">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4 class="widget-title">Learn About Me</h4>
-                            <div class="about-image">
-                                <img src="img/8.jpg" alt="about me">
-                            </div>
-                            <p>Volton is free website design from <span class="blue">template</span><span class="green">mo</span>. You can use this template for any purpose. Please tell your friends about it. Thank you. Credit goes to <a rel="nofollow" href="http://unsplash.com" target="_parent">Unsplash</a> for images used in this design. You can <strong>change menu icons</strong> by checking <a rel="nofollow" href="http://fontawesome.info/font-awesome-icon-world-map/" target="_parent">Font Awesome</a> (version 4). Example: <strong>&lt;i class=&quot;fa fa-camera&quot;&gt;&lt;/i&gt;</strong></p>
-                            <hr>
+                            <h4 class="widget-title">ADD NEW TEACHER </h4>
                         </div>
-                    </div> <-- #about --
-                    </div> -->
-
-                     <!-- CONTACT -->
-                     <div class="page-section" id="contact">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4 class="widget-title">ADD NEW TEACHER </h4>
-                                <!-- <p>Add new teacher using this form</p> -->
-                            </div>
-                        </div>
-                        <div class="row">
-                            <!-- <form action="#" method="post" class="contact-form">
-                                <fieldset class="col-md-4 col-sm-6">
-                                    <input type="text" id="your-name" placeholder="Your Name...">
-                                </fieldset>
-                                <fieldset class="col-md-4 col-sm-6">
-                                    <input type="email" id="email" placeholder="Your Email...">
-                                </fieldset>
-                                <fieldset class="col-md-4 col-sm-12">
-                                    <input type="text" id="your-subject" placeholder="Subject...">
-                                </fieldset>
-                                <fieldset class="col-md-12 col-sm-12">
-                                    <textarea name="message" id="message" cols="30" rows="6" placeholder="Leave your message..."></textarea>
-                                </fieldset>
-                                <fieldset class="col-md-12 col-sm-12">
-                                    <input type="submit" class="button big default" value="Send Message">
-                                </fieldset>
-                            </form> -->
-                            <form class="contact-form">
-                                <div class="form-group ">
-                                  <label for="name">Name</label>
-                                  <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
-                                </div>
-                                <div class="form-group">
-                                  <!-- <label for="exampleInputPassword1">Password</label>
-                                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter last name"> -->
-                                  <label for="subject">Course</label>
-                                  <select  class="form-control" name="course" id="course" >
-                                    <option value="1">Arts</option>
-                                    <option value="2">Commerce</option>
-                                    <option value="3">Science</option>
-                                  </select>
-                                </div>
-                                <div class="form-group">
-                                  <label for="exampleInputFile">Display picture</label>
-                                  <p class="help-block">Add a recent photo as profile picture.</p>
-                                  <input type="file" name="pic" id="exampleInputFile">
-                                  <!-- <p class="help-block">Add a recent photo as profile picture.</p> -->
-                                </div>
-                                
-                                <button type="submit" class="btn btn-primary">Add teacher</button>
-                              </form>
-                        </div> <!-- .add-form -->
-                        </div>
-                        <hr>
-                    
-                    <!-- PROJECTS -->
-                    <div class="page-section" id="projects">
+                    </div>
                     <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="widget-title">PHOTOS OF WHAT I DO</h4>
-                            <p>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Maecenas et lorem molestie, maximus justo dignissim, cursus nisl. Nullam at ante quis ex pharetra pulvinar quis id dolor. Integer lorem odio, euismod ut sem sit amet, imperdiet condimentum diam.</p>
-                    </div> #about -->
-                <!-- </div> -->
-
-                <!-- PROJECTS -->
+                        <form id="frm"  method="POST">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="id" name="id" readonly placeholder="Id">
+                                <label for="error" id="error"></label><br>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                                <label for="error" id="error"></label><br>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="course" name="course" placeholder="Course">
+                                <label for="error2" id="error2"></label><br>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id="submit" class="btn btn-dark btn-block">Register</button>
+                                <label for="verify" id="verify"></label><br>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- .add-form -->
+                </div>
+                <hr>
                 <div class="page-section" id="projects">
                     <div class="row">
                         <div class="col-md-12">
                             <h4 class="widget-title">Teacher details</h4>
-                            <!-- <p>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum
-                                velit.
-                                Nam nec tellus a odio tincidunt auctor a ornare odio. Maecenas et lorem molestie,
-                                maximus
-                                justo dignissim, cursus nisl. Nullam at ante quis ex pharetra pulvinar quis id dolor.
-                                Integer lorem odio, euismod ut sem sit amet, imperdiet condimentum diam.</p> -->
                         </div>
                     </div>
-                    <div class="row projects-holder">
-                        <div class="col-md-4 col-sm-6">
-                            <div class="project-item">
-                                <img src="img/teacher.jpg" alt="">
-                                <div class="project-hover">
-                                    <div class="inside">
-                                        <h5><a href="#">Pellentesque porta ligula</a></h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus</p>
-                                        <div class="social-icons">
-                                            <ul>
-                                                
-                                                <li><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="row projects-holder" id="dis">
+                        <hr>
+                        <div class="row" id="footer">
+                            <div class="col-md-12 text-center">
+                                <p class="copyright-text">Student &copy;Teacher </p>
                             </div>
                         </div>
-                        <!-- <div class="col-md-4 col-sm-6">
-                            <div class="project-item">
-                                <img src="img/2.jpg" alt="">
-                                <div class="project-hover">
-                                    <div class="inside">
-                                        <h5><a href="#">Pellentesque porta ligula</a></h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="project-item">
-                                <img src="img/3.jpg" alt="">
-                                <div class="project-hover">
-                                    <div class="inside">
-                                        <h5><a href="#">Pellentesque porta ligula</a></h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- <div class="col-md-4 col-sm-6">
-                            <div class="project-item">
-                                <img src="img/4.jpg" alt="">
-                                <div class="project-hover">
-                                    <div class="inside">
-                                        <h5><a href="#">Pellentesque porta ligula</a></h5>
-                                        <p>Quisque mattis sit amet dolor eu scelerisque. Vivamus bibendum massa et nisl
-                                            tempus commodo.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- <div class="col-md-4 col-sm-6">
-                            <div class="project-item">
-                                <img src="img/5.jpg" alt="">
-                                <div class="project-hover">
-                                    <div class="inside">
-                                        <h5><a href="#">Pellentesque porta ligula</a></h5>
-                                        <p>Quisque mattis sit amet dolor eu scelerisque. Vivamus bibendum massa et nisl
-                                            tempus commodo.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- <div class="col-md-4 col-sm-6">
-                            <div class="project-item">
-                                <img src="img/6.jpg" alt="">
-                                <div class="project-hover">
-                                    <div class="inside">
-                                        <h5><a href="#">Pellentesque porta ligula</a></h5>
-                                        <p>Quisque mattis sit amet dolor eu scelerisque. Vivamus bibendum massa et nisl
-                                            tempus commodo.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                    </div> <!-- .projects-holder -->
-                </div>
-                <hr>
-
-                <!-- CONTACT -->
-                <!-- <div class="page-section" id="contact">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="widget-title">PLACE TO TALK WITH ME</h4>
-                            <p>Vestibulum ac iaculis erat, in semper dolor. Maecenas et lorem molestie, maximus justo
-                                dignissim, cursus nisl. Nullam at ante quis ex pharetra pulvinar quis id dolor. Integer
-                                lorem odio, euismod ut sem sit amet, imperdiet condimentum diam.</p>
-                        </div>
-                    </div> -->
-                    <!-- <div class="row">
-                        <form action="#" method="post" class="contact-form">
-                            <fieldset class="col-md-4 col-sm-6">
-                                <input type="text" id="your-name" placeholder="Your Name...">
-                            </fieldset>
-                            <fieldset class="col-md-4 col-sm-6">
-                                <input type="email" id="email" placeholder="Your Email...">
-                            </fieldset>
-                            <fieldset class="col-md-4 col-sm-12">
-                                <input type="text" id="your-subject" placeholder="Subject...">
-                            </fieldset>
-                            <fieldset class="col-md-12 col-sm-12">
-                                <textarea name="message" id="message" cols="30" rows="6"
-                                    placeholder="Leave your message..."></textarea>
-                            </fieldset>
-                            <fieldset class="col-md-12 col-sm-12">
-                                <input type="submit" class="button big default" value="Send Message">
-                            </fieldset>
-                        </form>
-                    </div> .contact-form -->
-                <!-- </div> -->
-                <hr>
-
-                <div class="row" id="footer">
-                    <div class="col-md-12 text-center">
-                        <p class="copyright-text">Student &copy;Teacher </p>
                     </div>
                 </div>
-
             </div>
-
-        </div>
-    </div>
-
-    <script src="js/vendor/jquery-1.10.2.min.js"></script>
-    <script src="js/min/plugins.min.js"></script>
-    <script src="js/min/main.min.js"></script>
-
+            <script src="js/vendor/jquery-1.10.2.min.js"></script>
+            <script src="js/min/plugins.min.js"></script>
+            <script src="js/min/main.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.js"
+                integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        
+            <script type="text/javascript">
+                function load() {
+                    $.ajax({
+                        url: "http://localhost:3000/teacher/select"
+                    }).done(function (renobj) {
+                        var res = "";
+                        console.log(renobj);
+                        if (renobj.status === "Valid") {
+                            $.each(renobj.data, function (i) {
+                                console.log(renobj.data[i]);
+                                res = res + "<div class='row'>";
+                                res = res + "<br>";
+                                res = res + '<div class="col-md-12 col-sm-12">';
+                                res = res + "<h2>"+ renobj.data[i].name +"</h2><br>";
+                                // res = res + '<div class="row">';
+                                // res = res + '<div class="col-xs-9">';
+                                // res = res + '<h4><span class="label label-default">'+renobj.data[i].name +'</span></h4>';
+                                res = res + '<h3><span class="label label-default">'+renobj.data[i].course+'</span></h3><br>';
+                                res = res + '<small style="font-family:courier,\'new courier\';" class="text-muted">'+
+                                    " <button onclick='edit(" + renobj.data[i].id + ")'  class='text-muted btn'>Edit</button></small>" ;
+                                    res = res + '<small style="font-family:courier,\'new courier\';" class="text-muted">'+
+                                    " <button onclick='dele(" + renobj.data[i].id + ")'  class='text-muted btn round'>Delete</button></small>" ;        
+                                // res = res + "</div>";
+                                // res = res + "<div class='col-xs-3'>";
+                                // res = res + "</div>";
+                                // res = res + "</div>";
+                                res = res + "<br>";
+                                res = res + "<br>";
+                                res = res + "</div>";
+                                res = res + "</div>";
+                            })
+                            res = res + "";
+                            $("#dis").html(res);
+                        } else {
+                           alert('Error')
+                        }
+                    });
+                }
+        
+                function edit(id) {
+                    $.ajax({
+                        url: "http://localhost:3000/teacher/select/edit/" + id
+                    }).done(function (renobj) {
+                        console.log(renobj)
+                        if (renobj.status === "Valid") {
+                            console.log(renobj.data[0].name)
+                            $("#id").val(renobj.data[0].id);
+                            $("#name").val(renobj.data[0].name);
+                            $("#course").val(renobj.data[0].course);                            
+                        }                       
+                    });                  
+                }
+        
+                function dele(id) {
+                    $.ajax({
+                        url: "http://localhost:3000/teacher/selectapi/delete/" + id
+                    }).done(function (renobj) {
+                        console.log(renobj)
+                        load();
+                    });
+                }
+        
+                $(document).ready(function () {
+                    load();
+                    $("#frm").submit(function (e) {
+                        console.log($("#frm").serialize());
+                        e.preventDefault();
+                        $.ajax({
+                            url: "http://localhost:3000/teacher/select/post",
+                            type: "post",
+                            data: $("#frm").serialize()
+                        }).done(function (renobj) {
+                            if (renobj.status === "Valid") {
+                                alert('Saved');
+                                $("#id").val('');
+                                $("#name").val('');
+                                $("#course").val('');
+                                load();
+                            }
+                        });
+                    })
+                });
+            </script>
 </body>
-
 </html>
