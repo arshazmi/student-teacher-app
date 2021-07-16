@@ -222,19 +222,21 @@ app.get('/course',(req,res)=>{
 app.post('/api/insert/course', async (req, res) => {
     console.log(req.params);
     console.log(req.body);
-    // if (req.body.id === '') {
+    if (req.body.course_id === '') {
         await db.none('INSERT INTO course(course_name,department) VALUES(${course_name},${department})', { 
             course_name: req.body.course_name,
             department: req.body.department
         });
 
-    // } 
-    // else {
-    //     await db.none('update course set  name=${name} where id = ${id}', {
-    //         name: req.body.name,
-    //         id: req.body.id
-    //     })
-    // }
+    } 
+    else {
+        await db.none('update course set  course_name=${course_name},department=${department} where course_id = ${id}', {
+            course_name: req.body.course_name,
+            department: req.body.department,
+            id: req.body.course_id
+        })
+        
+    }
 
     var data = {
         'status': "Valid",
@@ -277,7 +279,31 @@ app.get('/api/delete/course/:id', async (req, res) => {
     
 })
 
+app.get('/api/edit/course/select/:id', async (req, res) => {
+    console.log(req.params.id);
+    await db.any('select course_id,course_name,department from course where course_id='+ req.params.id ).then(datan => {
+        var data = {
+            'status': "Valid",
+            'status-code': "5001",
+            "data": datan
+        };
+        res.status(200).json(data);
+    }).catch(error => {
+        console.log(error);
+        var data = {
+            'status': "invalid",
+            'status-code': "5000",
+            "msg": error
+        };
+        res.status(200).json(data);
 
+    });
+})
+
+
+app.get('/coursenew',(req,res)=>{
+    res.render('coursenew')
+})
 
 
 app.listen(port, () => {
