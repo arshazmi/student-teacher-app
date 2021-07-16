@@ -144,6 +144,7 @@ app.post('/api/insert/course', async (req, res) => {
             department: req.body.department,
             id: req.body.course_id
         })
+        
     }
 
     var data = {
