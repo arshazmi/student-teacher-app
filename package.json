@@ -1,7 +1,6 @@
 {
   "name": "student-teacher",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,5 +15,14 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arshazmi/student-teacher-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arshazmi/student-teacher-app/issues"
+  },
+  "homepage": "https://github.com/arshazmi/student-teacher-app#readme",
+  "description": ""
 }

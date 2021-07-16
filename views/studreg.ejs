@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registration Form</title>
+	<link rel="stylesheet" href="/css/studreg.css">
+</head>
+<body>
+<form method="post" id="frm">
+    <div class="wrapper">
+        <div class="title">
+          Registration Form
+        </div>
+        <div class="form">
+           <div class="inputfield">
+              <label>Name</label>
+              <input type="text" class="input" id="name" name="name">
+           </div>  
+            <div class="inputfield">
+              <label>Date of birth</label>
+              <input type="date" class="input" id="dob" name="dob" >
+           </div>  
+           <div class="inputfield">
+              <label>Email</label>
+              <input type="text" class="input" id="email" name="email">
+           </div>  
+           <div class="inputfield">
+            <label>Mobile Number</label>
+            <input type="number" class="input" id="phone" name="phone" >
+         </div> 
+          <div class="inputfield">
+              <label>Password</label>
+              <input type="password" class="input" id="password" name="password">
+           </div> 
+            <div class="inputfield">
+              <label>Course</label>
+              <div class="custom_select">
+                <select name="course">
+                  <option value="">Select</option>
+                  <option value="Science">Science</option>
+                  <option value="Bio Maths">Bio Maths</option>
+                  <option value="Commerce">Commerce</option>
+                </select>
+              </div>
+           </div> 
+            <div class="inputfield">
+              <label>Address</label>
+              <input type="text" class="input" id="address" name="address">
+           </div>          
+         
+          <!-- <div class="inputfield">
+              <label>Postal Code</label>
+              <input type="text" class="input">
+           </div> 
+          <div class="inputfield terms">
+              <label class="check">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <p>Agreed to terms and conditions</p>
+           </div>  -->
+          <div class="inputfield">
+            <input type="submit" value="Register" class="btn">
+          </div>
+        </div>
+    </div>	
+</form>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+            // load();
+            
+                $("#frm").submit(function (e) {
+                    console.log($("#frm").serialize());
+                    e.preventDefault();
+                    $.ajax({
+                        url: "http://localhost:3000/api/select/post",
+                        type: "post",
+                        data: $("#frm").serialize()
+                    }).done(function (renobj) {
+                        if (renobj.status === "Valid") {
+                            alert('Saved');
+                            $("#id").val('');
+                            $("#name").val('');
+                            $("#dob").val('');
+                            $("#course").val('');
+                            $("#address").val('');
+                            $("#email").val('');
+                            $("#phone").val('');
+                            $("#password").val('');
+                            // load();
+                        }
+                    });
+
+                })
+
+            });
+        
+        </script>
+	
+</body>
+</html>
