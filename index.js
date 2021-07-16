@@ -8,7 +8,12 @@ app.set('view engine', 'ejs');
 var pgp = require('pg-promise')( /* options */ )
 // var db = pgp('postgres://postgres:1234@localhost:5432/student-teacher');
 var db = pgp('postgres://postgres:1234@localhost:5432/demoproj');
-app.get('/', (req, res) => {
+
+app.get('/',(req,res)=>{
+    res.render('login');
+})
+
+app.get('/teacher', (req, res) => {
     res.render('teacher')
 })
 //techer read operation
