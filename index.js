@@ -6,7 +6,7 @@ app.use(express.json()) // To parse the incoming requests with JSON payloads
 app.use(express.static('public'))
 app.set('view engine', 'ejs');
 var pgp = require('pg-promise')( /* options */ )
-var db = pgp('postgres://postgres:root@localhost:5432/studteach');
+var db = pgp('postgres://postgres:1234@localhost:5432/demoproj');
 
 app.get('/',(req,res)=>{
     res.render('login');
@@ -61,11 +61,11 @@ app.post('/teacher/select/post', async (req, res) => {
             id: req.body.id
         })
     }
-    // var data = {
-    //     'status': "Valid",
-    //     'status-code': "5001",
-    // };
-    // res.status(200).json(data);
+    var data = {
+        'status': "Valid",
+        'status-code': "5001",
+    };
+    res.status(200).json(data);
 })
 
 app.get('/teacher/select/edit/:id', async (req, res) => {

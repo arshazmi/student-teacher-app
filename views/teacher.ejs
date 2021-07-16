@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <form id="frm" action="/post" method="POST">
+                        <form id="frm"  method="POST">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="id" name="id" readonly placeholder="Id">
                                 <label for="error" id="error"></label><br>
@@ -171,9 +171,9 @@
                             console.log(renobj.data[0].name)
                             $("#id").val(renobj.data[0].id);
                             $("#name").val(renobj.data[0].name);
-                            $("#course").val(renobj.data[0].course);
-                        }
-                    });
+                            $("#course").val(renobj.data[0].course);                            
+                        }                       
+                    });                  
                 }
         
                 function dele(id) {
