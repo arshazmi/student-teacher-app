@@ -78,7 +78,6 @@
                     </div>
                     <div class="row">
                         <form id="frm" action="/post" method="POST">
-                            <h2 class="text-center">Register</h2>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="id" name="id" readonly placeholder="Id">
                                 <label for="error" id="error"></label><br>
@@ -92,7 +91,7 @@
                                 <label for="error2" id="error2"></label><br>
                             </div>
                             <div class="form-group">
-                                <button type="submit" id="submit" class="btn btn-primary btn-block">Register</button>
+                                <button type="submit" id="submit" class="btn btn-dark btn-block">Register</button>
                                 <label for="verify" id="verify"></label><br>
                             </div>
                         </form>
@@ -137,11 +136,11 @@
                                 res = res + "<div class='row'>";
                                 res = res + "<br>";
                                 res = res + '<div class="col-md-12 col-sm-12">';
-                                res = res + "<h2>"+ renobj.data[i].name +"</h2>";
+                                res = res + "<h2>"+ renobj.data[i].name +"</h2><br>";
                                 // res = res + '<div class="row">';
                                 // res = res + '<div class="col-xs-9">';
                                 // res = res + '<h4><span class="label label-default">'+renobj.data[i].name +'</span></h4>';
-                                res = res + '<h3><span class="label label-default">'+renobj.data[i].course+'</span></h3>';
+                                res = res + '<h3><span class="label label-default">'+renobj.data[i].course+'</span></h3><br>';
                                 res = res + '<small style="font-family:courier,\'new courier\';" class="text-muted">'+
                                     " <button onclick='edit(" + renobj.data[i].id + ")'  class='text-muted btn'>Edit</button></small>" ;
                                     res = res + '<small style="font-family:courier,\'new courier\';" class="text-muted">'+
@@ -183,7 +182,6 @@
                     }).done(function (renobj) {
                         console.log(renobj)
                         load();
-                       
                     });
                 }
         
