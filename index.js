@@ -6,7 +6,7 @@ app.use(express.json()) // To parse the incoming requests with JSON payloads
 app.use(express.static('public'))
 app.set('view engine', 'ejs');
 var pgp = require('pg-promise')( /* options */ )
-var db = pgp('postgres://postgres:root@localhost:5432/student-teacher');
+var db = pgp('postgres://postgres:root@localhost:5432/studteach');
 
 app.get('/', (req, res) => {
     res.render('teacher')
@@ -40,50 +40,50 @@ app.post('/teacher/select/post', async (req, res) => {
         });
 
     } else {
-        await db.none('update teacher set  name=${name}, password=${course} where id = ${id}', {
+        await db.none('update teacher set  name=${name}, course=${course} where id = ${id}', {
             name: req.body.name,
             course: req.body.course,
             id: req.body.id
         })
     }
-
-app.get('/teacher/edit/:id', async function(req,res){
-    await db.any('SELECT id,name,course FROM teacher WHERE id=${id}',
-       {id:req.params.id} 
-    ).then(data=>{
-        console.log("Data from db:",data);
-        res.status(200).json(data);
-        });
-
-});
-
-app.post('/teacher/edit/:id', async function(req,res){
-    console.log('Params::',req.params);
-    await db.none('UPDATE teacher SET name=${fn},  course=${sub} WHERE id=${id}',
-    {
-      fn:req.body.fn,
-      sub:req.body.sub,
-      id:req.params.id      
-    });
-    var data = {
-        'status': "Valid",
-        'statuscode': "5002", 
-    };
-    res.status(200).json(data);
-});
-
-app.get('/teacher/delete/:id', async function(req,res){
-    await db.none('DELETE  FROM teacher where id=${id}',{
-        id:req.params.id
-    });
-    var data = {
-        'status': "Valid",
-        'statuscode': "5004", 
-    };
-     res.status(200).json(data);
-});
+    // var data = {
+    //     'status': "Valid",
+    //     'status-code': "5001",
+    // };
+    // res.status(200).json(data);
 })
 
+app.get('/teacher/select/edit/:id', async (req, res) => {
+    console.log(req.params.id);
+    await db.any('select * from teacher where id  =' + req.params.id).then(datan => {
+        var data = {
+            'status': "Valid",
+            'status-code': "5001",
+            "data": datan
+        };
+        res.status(200).json(data);
+    }).catch(error => {
+        console.log(error);
+        var data = {
+            'status': "invalid",
+            'status-code': "5000",
+            "msg": error
+        };
+        res.status(200).json(data);
+    });
+})
+
+app.get('/teacher/selectapi/delete/:id', async (req, res) => {
+    console.log(req.params.id);
+    await db.none('delete from teacher where id = ${id}', {
+        id: req.params.id
+    })
+    var data = {
+        'status': "Valid",
+        'status-code': "5001", 
+    };
+    res.status(200).json(data);  
+})
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
