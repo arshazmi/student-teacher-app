@@ -6,8 +6,8 @@ app.use(express.json()) // To parse the incoming requests with JSON payloads
 app.use(express.static('public'))
 app.set('view engine', 'ejs');
 var pgp = require('pg-promise')( /* options */ )
-var db = pgp('postgres://postgres:1234@localhost:5432/student-teacher');
-
+// var db = pgp('postgres://postgres:1234@localhost:5432/student-teacher');
+var db = pgp('postgres://postgres:1234@localhost:5432/demoproj');
 app.get('/', (req, res) => {
     res.render('teacher')
 })
@@ -118,6 +118,76 @@ app.post('/api/select/post', async (req, res) => {
     res.status(200).json(data);
 
 })
+
+
+// _________________________________________________COURSE_____________________________________________________//
+
+app.get('/course',(req,res)=>{
+    res.render('course')
+})
+
+// _________________________________________________COURSE INSERTION_____________________________________________________//
+
+app.post('/api/insert/course', async (req, res) => {
+    console.log(req.params);
+    console.log(req.body);
+    // if (req.body.id === '') {
+        await db.none('INSERT INTO course(course_name,department) VALUES(${course_name},${department})', { 
+            course_name: req.body.course_name,
+            department: req.body.department
+        });
+
+    // } 
+    // else {
+    //     await db.none('update course set  name=${name} where id = ${id}', {
+    //         name: req.body.name,
+    //         id: req.body.id
+    //     })
+    // }
+
+    var data = {
+        'status': "Valid",
+        'status-code': "5001",
+    };
+    res.status(200).json(data);
+})
+
+app.get('/api/select/course', async (req, res) => {
+    console.log(req.params.id);
+    await db.any('select * from course ').then(datan => {
+        var data = {
+            'status': "Valid",
+            'status-code': "5001",
+            "data": datan
+        };
+        res.status(200).json(data);
+    }).catch(error => {
+        console.log(error);
+        var data = {
+            'status': "invalid",
+            'status-code': "5000",
+            "msg": error
+        };
+        res.status(200).json(data);
+
+    });
+})
+
+app.get('/api/delete/course/:id', async (req, res) => {
+    console.log(req.params.id);
+    await db.none('delete from  course  where course_id = ${id}', {
+        id: req.params.id
+    })
+    var data = {
+        'status': "Valid",
+        'status-code': "5001", 
+    };
+    res.status(200).json(data);
+    
+})
+
+
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
