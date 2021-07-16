@@ -13,6 +13,17 @@ app.get('/',(req,res)=>{
     res.render('login');
 })
 
+app.get('/login', async (req,res)=>{
+    await db.any('SELECT * FROM login WHERE email=${email} and pwd=${pass}',
+    {email:req.body.email, pass:req.body.password} 
+ ).then(data=>{
+     console.log("Data from db:",data);
+     res.redirect('teacher');
+     });
+
+   
+})
+
 app.get('/teacher', (req, res) => {
     res.render('teacher')
 })
