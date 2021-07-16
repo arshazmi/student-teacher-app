@@ -13,12 +13,17 @@ app.get('/',(req,res)=>{
     res.render('login');
 })
 
-app.get('/login', async (req,res)=>{
-    await db.any('SELECT * FROM login WHERE email=${email} and pwd=${pass}',
+app.post('/login', async (req,res)=>{
+    await db.any(' select * from login where email=${email} and pwd=${pass}',
     {email:req.body.email, pass:req.body.password} 
  ).then(data=>{
      console.log("Data from db:",data);
-     res.redirect('teacher');
+     if(data.length!==0)
+         res.redirect('teacher');
+    else{
+        var data={status:"not found"}
+        res.render('login');
+    }
      });
 
    
