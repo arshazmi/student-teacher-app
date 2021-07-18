@@ -18,7 +18,7 @@ app.post('/login', async (req,res)=>{
  ).then(data=>{
      console.log("Data from db:",data);
      if(data.length!==0)
-         res.redirect('teacher');
+         res.redirect('student');
     else{
         var data={status:"not found"}
         res.render('login');
@@ -108,6 +108,8 @@ app.get('/teacher/selectapi/delete/:id', async (req, res) => {
 app.get('/studreg',(req,res)=>{
     res.render('studreg')
 })
+
+
 
 //-----------------------student registerations----------------------------------
 app.post('/api/select/post', async (req, res) => {
@@ -310,6 +312,72 @@ app.get('/coursenew',(req,res)=>{
     res.render('coursenew')
 })
 
+//____________________________________________Student Marksheet__________________________________
+app.use((req,res,next)=>{
+    console.log(req.url, req.method);
+    next();
+})
+
+app.get('/student', async (req,res)=>{
+    await db.any('select course_id,course_name from course')
+    .then(data=>{
+        let sub= JSON.parse(JSON.stringify(data));;
+        data.unshift({ course_id: 0, course_name: 'All' })
+       res.render('student',{options:data,sub:sub});
+     });
+})
+
+app.get('/student/select', async (req,res)=>{
+    await db.any('select m.id, s.name, c.course_name, m.mark from marksheet as m inner join course as c  on  c.course_id=m.subject inner join student as s on s.id=m.student')
+    .then(data=>res.status(200).json(data));
+})
+
+app.get('/student/select/:course', async (req,res)=>{
+    await db.any('select m.id, s.name, c.course_name, m.mark from marksheet as m inner join course as c  on  c.course_id=m.subject inner join student as s on s.id=m.student where subject=${course}',
+    {course:req.params.course})
+    .then(data=>res.status(200).json(data));
+})
+
+app.post('/student/addmark',async (req,res)=>{
+    const {stud,sub,mar}=req.body;
+    console.log(req.body)
+    console.log("Incoming...",stud,sub,mar);
+    await db.none('INSERT INTO marksheet(student,mark,subject) VALUES(${stud}, ${mar},${subject})', {
+        stud:stud,subject:sub,mar:mar
+    });
+    var data = {
+        'status': "Valid",
+        'statuscode': "5001", 
+    };
+    res.status(200).json(data);
+})
+
+//try multiple query parameter
+app.get('/student/checkstud',async (req,res)=>{
+    console.log(req.query);
+    //console.log(req.query.name==='jud');
+    await db.any('select id, name from student where name=${sn} and name in(select s.name from student as s inner join course as c  on  c.department=s.course where c.course_id=${course})',
+    {course:req.query.id, sn:req.query.name})
+    .then(data=>{
+        var result = {
+            'status': "Valid",
+            'statuscode': "5001", 
+            'datan':data[0].name,
+            'datid':data[0].id
+        };
+        if(data.length===0){
+             result={
+            'status': "Not Valid",
+            'statuscode': "5000"
+        };}
+        console.log(result)
+        res.status(200).json(result)});
+
+})
+
+
+
+//________________________________________________________________________________________________
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
